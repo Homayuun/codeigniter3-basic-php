@@ -28,8 +28,6 @@ class Notes extends CI_Controller
 
     function load_notes()
     {
-        $this->output->set_content_type('application/json');
-
         $user_id = $this->session->userdata('user_id');
         if (!$user_id) {
             echo json_encode(['success' => false, 'message' => 'Not authenticated']);

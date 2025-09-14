@@ -10,9 +10,6 @@ class Note_model extends CI_Model {
             ->order_by('created_at', 'DESC')
             ->limit($limit, $offset)
             ->get('NotesTable');
-
-        echo $this->db->last_query();
-        var_dump($query->result_array());
         return $query->result_array();
     }
 

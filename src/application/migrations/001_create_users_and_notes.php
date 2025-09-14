@@ -28,6 +28,18 @@ class Migration_Create_users_and_notes extends CI_Migration
             ['username'=>'admin', 'password'=>'admin', 'created_at'=>date('Y-m-d H:i:s')],
             ['username'=>'admin2','password'=>'admin2','created_at'=>date('Y-m-d H:i:s')],
         ]);
+        
+        $notes = [];
+        for ($i = 1; $i <= 10; $i++) {
+            $notes[] = [
+                'user_id' => 1,
+                'title' => "Title $i",
+                'content' => "Content $i",
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+        }
+        $this->db->insert_batch('NotesTable', $notes);
+
     }
 
     public function down()
